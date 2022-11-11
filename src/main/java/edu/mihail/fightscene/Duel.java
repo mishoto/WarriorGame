@@ -18,11 +18,11 @@ public class Duel {
 
     public boolean fight(Warrior warrior, Knight knight){
 
-        while (warrior.isAlive(warrior.getHealth()) || knight.isAlive(knight.getHealth())){
+        while (warrior.isAlive(warrior.getHealth()) && knight.isAlive(knight.getHealth())){
             warrior.hitByKnight(knight);
             knight.hitByWarrior(warrior);
         }
-        return warrior.getHealth() == 0;
+        return warrior.getHealth() >= 0;
     }
 
     public Warrior chooseRandomFighterForFirstHit(Warrior warrior, Knight knight){
