@@ -2,34 +2,31 @@ package edu.mihail.fightscene;
 
 import edu.mihail.characters.Knight;
 import edu.mihail.characters.Warrior;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Duel {
 
-    public boolean fight(Warrior warriorOne, Warrior warriorTwo){
+    private Warrior warrior;
+    private Knight knight;
 
-        while (warriorOne.isAlive(warriorOne.getHealth()) || warriorTwo.isAlive(warriorTwo.getHealth())){
-            warriorOne.hitBy(warriorTwo);
-            warriorTwo.hitBy(warriorOne);
-        }
-        return warriorOne.getHealth() == 0;
+    public Duel(Warrior warrior, Knight knight) {
+        this.warrior = warrior;
+        this.knight = knight;
     }
 
-    public boolean fight(Warrior warriorOne, Knight warriorTwo){
+    public boolean fight(Warrior warrior, Knight knight){
 
-        while (warriorOne.isAlive(warriorOne.getHealth()) || warriorTwo.isAlive(warriorTwo.getHealth())){
-            warriorOne.hitBy(warriorTwo);
-            warriorTwo.hitBy(warriorOne);
+        while (warrior.isAlive(warrior.getHealth()) || knight.isAlive(knight.getHealth())){
+            warrior.hitByKnight(knight);
+            knight.hitByWarrior(warrior);
         }
-        return warriorOne.getHealth() == 0;
+        return warrior.getHealth() == 0;
     }
 
-    public Warrior chooseRandomWarriorForFirstHit(Warrior warriorOne, Warrior warriorTwo){
-        List<Warrior> listOfWarriors = Arrays.asList(warriorOne, warriorTwo);
+    public Warrior chooseRandomFighterForFirstHit(Warrior warrior, Knight knight){
+        List<Warrior> listOfWarriors = Arrays.asList(warrior, knight);
         return listOfWarriors.get(new Random().nextInt(listOfWarriors.size()));
     }
 }
