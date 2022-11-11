@@ -22,7 +22,10 @@ public class Warrior {
         return health > 0;
     }
 
-    public void hitBy(Warrior warrior){
-        health = this.getHealth() - warrior.attack;
+    public void hitByKnight(Knight knight){
+        health = this.getHealth() - knight.getAttack();
     }
+
+
+
 }
