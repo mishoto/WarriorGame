@@ -2,12 +2,12 @@ package edu.mihail.characters;
 
 public class Warrior {
 
+    private static final int ATTACK = 5;
     private  int health;
-    private final int attack;
+
 
     public Warrior() {
-        this.health = 50;
-        this.attack = 5;
+        setHealth(50);
     }
 
     public int getHealth() {
@@ -15,17 +15,18 @@ public class Warrior {
     }
 
     public int getAttack() {
-        return attack;
+        return ATTACK;
+    }
+
+    private void setHealth(int health) {
+        this.health = health;
     }
 
     public boolean isAlive(int health){
         return health > 0;
     }
 
-    public void hitByKnight(Knight knight){
-        health = this.getHealth() - knight.getAttack();
+    public void hit(Warrior warrior){
+        warrior.health = warrior.getHealth() - this.getAttack();
     }
-
-
-
 }
