@@ -8,21 +8,17 @@ import java.util.Random;
 
 public class Duel {
 
-    private Warrior warrior;
-    private Knight knight;
+    public static boolean fight(Warrior warriorOne, Warrior warriorTwo){
 
-    public Duel(Warrior warrior, Knight knight) {
-        this.warrior = warrior;
-        this.knight = knight;
-    }
+        while (warriorOne.isAlive(warriorOne.getHealth()) && warriorTwo.isAlive(warriorTwo.getHealth())){
+            warriorOne.hit(warriorTwo);
+            if (warriorTwo.getHealth() < 0){
+                break;
+            }
+            warriorTwo.hit(warriorOne);
 
-    public boolean fight(Warrior warrior, Knight knight){
-
-        while (warrior.isAlive(warrior.getHealth()) && knight.isAlive(knight.getHealth())){
-            warrior.hitByKnight(knight);
-            knight.hitByWarrior(warrior);
         }
-        return warrior.getHealth() >= 0;
+        return warriorOne.isAlive(warriorOne.getHealth());
     }
 
     public Warrior chooseRandomFighterForFirstHit(Warrior warrior, Knight knight){
