@@ -12,24 +12,25 @@ class DuelTest {
     private final Warrior warriorTwo = new Warrior();
     private final Warrior knightOne = new Knight();
     private final Knight knightTwo = new Knight();
+    private final Duel duel = new Duel();
 
     @Test
     void shouldCheckIfFirstOfTwoWarriorsWhenAttackFirstWillWin(){
-        Assertions.assertTrue(Duel.fight(warriorOne, warriorTwo));
+        Assertions.assertTrue(duel.fight(warriorOne, warriorTwo));
     }
 
     @Test
     void shouldCheckIfFirstOfTwoKnightsWhenAttackFirstWillWin(){
-        Assertions.assertTrue(Duel.fight(knightOne, knightTwo));
+        Assertions.assertTrue(duel.fight(knightOne, knightTwo));
     }
 
     @Test
     void shouldCheckIfKnightWhenAttackFirstTheWarriorWillWin(){
-        Assertions.assertTrue(Duel.fight(knightOne, warriorOne));
+        Assertions.assertTrue(duel.fight(knightOne, warriorOne));
     }
 
     @Test
     void shouldCheckIfWarriorWhenAttackFirstTheKnightWillWin(){
-        Assertions.assertFalse(Duel.fight(warriorOne, knightOne));
+        Assertions.assertFalse(duel.fight(warriorOne, knightOne));
     }
 }
