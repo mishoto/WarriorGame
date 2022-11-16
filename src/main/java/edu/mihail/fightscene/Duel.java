@@ -1,9 +1,10 @@
 package edu.mihail.fightscene;
 
-import edu.mihail.characters.Warrior;
+import edu.mihail.models.Warrior;
 
 public class Duel implements Actions<Warrior> {
 
+    @Override
     public boolean fight(Warrior warriorOne, Warrior warriorTwo) {
 
         while (warriorOne.isAlive(warriorOne.getHealth()) && warriorTwo.isAlive(warriorTwo.getHealth())) {
