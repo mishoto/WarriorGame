@@ -9,7 +9,11 @@ public class Warrior extends Character implements Cloneable {
     }
 
     public void hit(Warrior warrior) {
-        warrior.health = warrior.getHealth() - this.getAttack();
+        if(warrior instanceof Defender && ((Defender) warrior).getDefence() > this.getAttack()){
+            warrior.health = warrior.health + ((Defender) warrior).getDefence() - this.getAttack();
+        }else{
+            warrior.health = warrior.health - this.getAttack();
+        }
     }
 
     @Override
