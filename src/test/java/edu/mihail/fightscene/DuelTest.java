@@ -1,7 +1,7 @@
 package edu.mihail.fightscene;
 
-import edu.mihail.characters.Knight;
-import edu.mihail.characters.Warrior;
+import edu.mihail.models.Knight;
+import edu.mihail.models.Warrior;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

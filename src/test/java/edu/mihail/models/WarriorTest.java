@@ -1,4 +1,4 @@
-package edu.mihail.characters;
+package edu.mihail.models;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
