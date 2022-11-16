@@ -4,7 +4,7 @@ public abstract class Character {
 
     protected int health;
 
-    public boolean isAlive(int health) {
+    public boolean isAlive() {
         return health > 0;
     }
 
