@@ -33,12 +33,30 @@ class WarriorTest {
     @Test
     void shouldCheckIfWarriorIsAlive(){
         assertAll("isAlive of Warriors is:",
-                () -> assertTrue(warriorOne.isAlive(5)),
-                () -> assertFalse(warriorOne.isAlive(0)),
-                () -> assertFalse(warriorOne.isAlive(-10)),
-                () -> assertTrue(knightOne.isAlive(1)),
-                () -> assertFalse(knightOne.isAlive(0)),
-                () -> assertFalse(knightOne.isAlive(-5))
+                () -> {
+            warriorOne.health = 50;
+            assertTrue(warriorOne.isAlive());
+                },
+                () -> {
+            warriorOne.health = 0;
+            assertFalse(warriorOne.isAlive());
+                },
+                () -> {
+            warriorOne.health = -10;
+            assertFalse(warriorOne.isAlive());
+                },
+                () -> {
+            knightOne.health = 1;
+            assertTrue(knightOne.isAlive());
+                },
+                () -> {
+                    knightOne.health = 0;
+            assertFalse(knightOne.isAlive());
+                },
+                () -> {
+                    knightOne.health = -5;
+            assertFalse(knightOne.isAlive());
+                }
         );
     }
 
