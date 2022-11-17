@@ -10,11 +10,6 @@ public class Defender extends Warrior {
     }
 
     @Override
-    public int getHealth() {
-        return this.health;
-    }
-
-    @Override
     public int getAttack() {
         return ATTACK;
     }
