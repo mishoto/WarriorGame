@@ -1,8 +1,11 @@
-package edu.mihail.models;
+package edu.test.models;
 
+import edu.mihail.models.Knight;
+import edu.mihail.models.Warrior;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WarriorTest {
@@ -23,7 +26,7 @@ class WarriorTest {
     }
 
     @Test
-    void shouldCheckIfWarriorHasHealthOf50(){
+    void shouldCheckIfWarriorHasHealthOf50() {
         assertAll("Health of Warriors is:",
                 () -> assertEquals(50, warriorOne.getHealth()),
                 () -> assertEquals(50, warriorTwo.getHealth())
@@ -31,38 +34,30 @@ class WarriorTest {
     }
 
     @Test
-    void shouldCheckIfWarriorIsAlive(){
+    void shouldCheckIfWarriorIsAlive() {
+        class HealthTestWarrior extends Warrior {
+            public HealthTestWarrior(int health) {
+                setHealth(health);
+            }
+        }
+        Warrior warriorPositive = new HealthTestWarrior(50);
+        Warrior warriorZero = new HealthTestWarrior(0);
         assertAll("isAlive of Warriors is:",
                 () -> {
-            warriorOne.health = 50;
-            assertTrue(warriorOne.isAlive());
+                    assertTrue(warriorPositive.isAlive());
                 },
                 () -> {
-            warriorOne.health = 0;
-            assertFalse(warriorOne.isAlive());
+                    assertFalse(warriorZero.isAlive());
                 },
                 () -> {
-            warriorOne.health = -10;
-            assertFalse(warriorOne.isAlive());
-                },
-                () -> {
-            knightOne.health = 1;
-            assertTrue(knightOne.isAlive());
-                },
-                () -> {
-                    knightOne.health = 0;
-            assertFalse(knightOne.isAlive());
-                },
-                () -> {
-                    knightOne.health = -5;
-            assertFalse(knightOne.isAlive());
+                    assertThrows(IllegalArgumentException.class, () -> new HealthTestWarrior(-20));
                 }
         );
     }
 
     @RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
     @DisplayName("Hit -> ")
-    void shouldCheckIfHitDecrementHealthOfTheInputWarriorByTheCallerAttack(){
+    void shouldCheckIfHitDecrementHealthOfTheInputWarriorByTheCallerAttack() {
 
         warriorOne.hit(warriorTwo);
         assertEquals(45, warriorTwo.getHealth());
