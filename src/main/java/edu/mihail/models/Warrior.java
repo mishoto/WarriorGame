@@ -32,10 +32,6 @@ public class Warrior extends Character implements Cloneable {
         return this.health;
     }
 
-    private void setHealth(int health) {
-        this.health = health;
-    }
-
     public int getAttack() {
         return ATTACK;
     }

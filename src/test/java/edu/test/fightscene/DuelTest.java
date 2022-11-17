@@ -1,5 +1,6 @@
-package edu.mihail.fightscene;
+package edu.test.fightscene;
 
+import edu.mihail.fightscene.Duel;
 import edu.mihail.models.Knight;
 import edu.mihail.models.Warrior;
 import org.junit.jupiter.api.Assertions;

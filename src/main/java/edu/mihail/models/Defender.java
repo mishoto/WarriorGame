@@ -6,7 +6,7 @@ public class Defender extends Warrior {
     private static final int DEFENCE = 2;
 
     public Defender() {
-        health = 60;
+        setHealth(60);
     }
 
     @Override

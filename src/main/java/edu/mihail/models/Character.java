@@ -8,7 +8,14 @@ public abstract class Character {
         return health > 0;
     }
 
-    public abstract int getHealth();
+    public int getHealth(){
+        return health;
+    }
 
-
+    protected void setHealth(int health) {
+        if(health < 0){
+            throw new IllegalArgumentException("Health cannot be set to negative number!");
+        }
+        this.health = health;
+    }
 }
