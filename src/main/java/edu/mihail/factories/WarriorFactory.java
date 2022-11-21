@@ -1,8 +1,6 @@
 package edu.mihail.factories;
 
-import edu.mihail.models.Defender;
-import edu.mihail.models.Knight;
-import edu.mihail.models.Warrior;
+import edu.mihail.models.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,6 +28,10 @@ public class WarriorFactory implements CharacterFactory<Warrior> {
                 return new Knight();
             case DEFENDER:
                 return new Defender();
+            case VAMPIRE:
+                return new Vampire();
+            case LANCER:
+                return new Lancer();
             default:
                 throw new IllegalArgumentException("There is no such warrior type!");
         }
