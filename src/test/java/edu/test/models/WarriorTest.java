@@ -12,7 +12,7 @@ class WarriorTest {
 
     private final Warrior warriorOne = new Warrior();
     private final Warrior warriorTwo = new Warrior();
-    private final Warrior knightOne = new Knight();
+    private final Knight knightOne = new Knight();
     private final Knight knightTwo = new Knight();
 
     @Test
