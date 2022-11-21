@@ -1,6 +1,6 @@
-package edu.mihail.characters;
+package edu.mihail.models;
 
-public class Knight extends Warrior{
+public class Knight extends Warrior {
 
     private static final int ATTACK = 7;
 

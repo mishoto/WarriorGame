@@ -1,8 +1,8 @@
-package edu.mihail.characters;
+package edu.test.models;
 
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import edu.mihail.models.Knight;
+import edu.mihail.models.Warrior;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
