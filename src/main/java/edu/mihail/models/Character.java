@@ -13,9 +13,6 @@ public abstract class Character {
     }
 
     protected void setHealth(int health) {
-        if(health < 0){
-            throw new IllegalArgumentException("Health cannot be set to negative number!");
-        }
         this.health = health;
     }
 }
