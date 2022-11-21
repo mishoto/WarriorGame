@@ -1,19 +1,22 @@
 package edu.mihail.models;
 
 import edu.mihail.factories.CharacterType;
+import edu.mihail.utils.Constants;
+import edu.mihail.utils.WarriorUtils;
+
 
 public class Warrior extends Character implements Cloneable {
 
-    private static final int ATTACK = 5;
-    protected int defence = 0;
+    private static final int ATTACK = Constants.Warrior.ATTACK;
+    private int defence;
 
     public Warrior() {
-        setHealth(50);
-        setDefence(0);
+        setHealth(Constants.Warrior.INITIAL_HEALTH);
+        setDefence(Constants.Warrior.DEFENCE);
     }
 
     public void hit(Warrior warrior) {
-        warrior.health = calculateWarriorHealth(getTypeFromWarriorInstance(warrior), warrior);
+        warrior.health = calculateWarriorHealth(WarriorUtils.getTypeFromWarriorInstance(warrior), warrior);
     }
 
     public void hit(Warrior warriorOne, Warrior warriorTwo) {
@@ -21,7 +24,7 @@ public class Warrior extends Character implements Cloneable {
         this.hit(warriorTwo);
     }
 
-    protected int calculateWarriorHealth(CharacterType characterType, Warrior attackedWarrior) {
+    private int calculateWarriorHealth(CharacterType characterType, Warrior attackedWarrior) {
         int attackedWarriorHealth = attackedWarrior.getHealth() - calculateWarriorDamage(attackedWarrior);
 
         switch (characterType) {
@@ -43,10 +46,7 @@ public class Warrior extends Character implements Cloneable {
         return attackedWarriorDefence < attackerAttack ? attackerAttack - attackedWarriorDefence : attackerAttack;
     }
 
-    public static CharacterType getTypeFromWarriorInstance(Warrior warrior) {
-        String packageName = warrior.getClass().getPackageName();
-        return CharacterType.valueOf(warrior.getClass().getTypeName().substring(packageName.length() + 1).toUpperCase());
-    }
+
 
     @Override
     public Warrior clone() {

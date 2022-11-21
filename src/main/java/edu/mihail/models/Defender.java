@@ -1,12 +1,14 @@
 package edu.mihail.models;
 
+import edu.mihail.utils.Constants;
+
 public class Defender extends Warrior {
 
-    private static final int ATTACK = 3;
+    private static final int ATTACK = Constants.Defender.ATTACK;
 
     public Defender() {
-        setHealth(60);
-        setDefence(2);
+        setHealth(Constants.Defender.INITIAL_HEALTH);
+        setDefence(Constants.Defender.DEFENCE);
     }
 
     @Override

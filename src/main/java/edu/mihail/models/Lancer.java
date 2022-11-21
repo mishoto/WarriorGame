@@ -1,11 +1,13 @@
 package edu.mihail.models;
 
+import edu.mihail.utils.Constants;
+
 public class Lancer extends Warrior {
 
-    private static final int ATTACK = 6;
+    private static final int ATTACK = Constants.Lancer.ATTACK;
 
     public Lancer() {
-        setHealth(50);
+        setHealth(Constants.Lancer.INITIAL_HEALTH);
     }
 
     @Override
