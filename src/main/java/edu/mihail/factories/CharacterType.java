@@ -5,5 +5,6 @@ public enum CharacterType {
     KNIGHT,
     DEFENDER,
     VAMPIRE,
-    LANCER
+    LANCER,
+    HEALER
 }
