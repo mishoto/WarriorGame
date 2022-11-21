@@ -48,9 +48,6 @@ class WarriorTest {
                 },
                 () -> {
                     assertFalse(warriorZero.isAlive());
-                },
-                () -> {
-                    assertThrows(IllegalArgumentException.class, () -> new HealthTestWarrior(-20));
                 }
         );
     }
