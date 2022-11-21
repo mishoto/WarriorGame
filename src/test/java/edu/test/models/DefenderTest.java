@@ -6,14 +6,14 @@ import edu.mihail.models.Warrior;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class DefenderTest {
 
     private final Warrior warriorOne = new Warrior();
-    private final Warrior defenderOne = new Defender();
+    private final Defender defenderOne = new Defender();
 
 
     @Test
@@ -32,14 +32,6 @@ class DefenderTest {
         defenderOne.hit(warriorOne);
         Assertions.assertEquals(47, warriorOne.getHealth());
         Assertions.assertEquals(57, defenderOne.getHealth());
-
-        warriorOne.hit(defenderOne);
-        Assertions.assertEquals(54, defenderOne.getHealth());
-        Assertions.assertEquals(47, warriorOne.getHealth());
-
-        defenderOne.hit(warriorOne);
-        Assertions.assertEquals(44, warriorOne.getHealth());
-        Assertions.assertEquals(54, defenderOne.getHealth());
 
     }
 }
