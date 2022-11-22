@@ -1,6 +1,5 @@
 package edu.mihail.models;
 
-import edu.mihail.factories.CharacterType;
 import edu.mihail.utils.Constants;
 import edu.mihail.utils.WarriorUtils;
 
@@ -16,7 +15,7 @@ public class Warrior extends Character implements Cloneable {
     }
 
     public void hit(Warrior warrior) {
-        warrior.health = calculateWarriorHealth(WarriorUtils.getTypeFromWarriorInstance(warrior), warrior);
+        warrior.health = WarriorUtils.calculateWarriorHealth(WarriorUtils.getTypeFromWarriorInstance(warrior), this, warrior);
     }
 
     public void hit(Warrior warriorOne, Warrior warriorTwo) {
@@ -24,35 +23,12 @@ public class Warrior extends Character implements Cloneable {
         this.hit(warriorTwo);
     }
 
-    private int calculateWarriorHealth(CharacterType characterType, Warrior attackedWarrior) {
-        int attackedWarriorHealth = attackedWarrior.getHealth() - calculateWarriorDamage(attackedWarrior);
-
-        switch (characterType) {
-            case WARRIOR:
-            case KNIGHT:
-            case DEFENDER:
-            case VAMPIRE:
-            case LANCER:
-                return attackedWarriorHealth;
-            default:
-                throw new IllegalArgumentException("Wrong Character Type");
-        }
-    }
-
-    protected int calculateWarriorDamage(Warrior attackedWarrior) {
-        int attackedWarriorDefence = attackedWarrior.getDefence();
-        int attackerAttack = this.getAttack();
-
-        return attackedWarriorDefence < attackerAttack ? attackerAttack - attackedWarriorDefence : attackerAttack;
-    }
-
-
-
     @Override
     public Warrior clone() {
         try {
             Warrior clone = (Warrior) super.clone();
             clone.setHealth(this.health);
+            clone.setDefence(this.defence);
             return clone;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
