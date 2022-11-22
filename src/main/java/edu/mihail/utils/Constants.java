@@ -45,7 +45,7 @@ public final class Constants {
         private Lancer() {
         }
 
-        public static final int ATTACK = 4;
+        public static final int ATTACK = 6;
         public static final int INITIAL_HEALTH = 50;
 
     }

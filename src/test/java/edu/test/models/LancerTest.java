@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LancerTest {
+class LancerTest {
 
     Warrior warrior = new Warrior();
     Knight knight = new Knight();
@@ -20,8 +20,8 @@ public class LancerTest {
     }
 
     @Test
-    void shouldCheckIfVampireHasHealthOf50() {
-        assertEquals(50, vampire.getHealth());
+    void shouldCheckIfLancerHasHealthOf50() {
+        assertEquals(50, lancer.getHealth());
     }
 
 
