@@ -1,6 +1,7 @@
 package edu.mihail.models;
 
 import edu.mihail.utils.Constants;
+import edu.mihail.utils.WarriorUtils;
 
 public class Lancer extends Warrior {
 
@@ -23,7 +24,7 @@ public class Lancer extends Warrior {
 
     private int calculateSecondWarriorHealth(Warrior warriorTwo){
         int warriorHealth = warriorTwo.getHealth();
-        int damage = super.calculateWarriorDamage(warriorTwo);
+        int damage = WarriorUtils.calculateWarriorDamage(this, warriorTwo);
         return warriorHealth - damage/2;
     }
 }

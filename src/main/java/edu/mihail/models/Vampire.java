@@ -1,6 +1,7 @@
 package edu.mihail.models;
 
 import edu.mihail.utils.Constants;
+import edu.mihail.utils.WarriorUtils;
 
 public class Vampire extends Warrior{
 
@@ -14,7 +15,7 @@ public class Vampire extends Warrior{
 
     private int calculateVampireHeal(Warrior warrior, int vampirism){
         int vampirismCoefficient = Math.floorDiv(100, vampirism);
-        int damage = super.calculateWarriorDamage(warrior);
+        int damage = WarriorUtils.calculateWarriorDamage(this, warrior);
         return this.health + damage/vampirismCoefficient;
     }
 
