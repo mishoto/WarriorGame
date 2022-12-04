@@ -1,7 +1,7 @@
 package edu.test.models;
 
-import edu.mihail.models.Knight;
-import edu.mihail.models.Warrior;
+import edu.mihail.models.characters.Knight;
+import edu.mihail.models.characters.Warrior;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -33,24 +33,6 @@ class WarriorTest {
         );
     }
 
-    @Test
-    void shouldCheckIfWarriorIsAlive() {
-        class HealthTestWarrior extends Warrior {
-            public HealthTestWarrior(int health) {
-                setHealth(health);
-            }
-        }
-        Warrior warriorPositive = new HealthTestWarrior(50);
-        Warrior warriorZero = new HealthTestWarrior(0);
-        assertAll("isAlive of Warriors is:",
-                () -> {
-                    assertTrue(warriorPositive.isAlive());
-                },
-                () -> {
-                    assertFalse(warriorZero.isAlive());
-                }
-        );
-    }
 
     @RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
     @DisplayName("Hit -> ")

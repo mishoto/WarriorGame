@@ -1,8 +1,8 @@
 package edu.test.models;
 
 
-import edu.mihail.models.Defender;
-import edu.mihail.models.Warrior;
+import edu.mihail.models.characters.Defender;
+import edu.mihail.models.characters.Warrior;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
