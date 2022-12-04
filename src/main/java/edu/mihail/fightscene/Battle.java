@@ -1,7 +1,8 @@
 package edu.mihail.fightscene;
 
-import edu.mihail.models.Army;
-import edu.mihail.models.Warrior;
+import edu.mihail.models.aggregates.Army;
+import edu.mihail.models.contracts.AbstractWarrior;
+import edu.mihail.models.contracts.Character;
 
 import java.util.List;
 
@@ -9,11 +10,11 @@ public class Battle implements FightStrategy<Army> {
 
     @Override
     public boolean fight(Army armyOne, Army armyTwo) {
-        List<Warrior> listOfArmyOne = armyOne.getArmy();
-        List<Warrior> listOfArmyTwo = armyTwo.getArmy();
+        List<Character> listOfArmyOne = armyOne.getTroop();
+        List<Character> listOfArmyTwo = armyTwo.getTroop();
 
-        Warrior warriorOfArmyOne = armyOne.getNextWarrior();
-        Warrior warriorOfArmyTwo = armyTwo.getNextWarrior();
+        AbstractWarrior warriorOfArmyOne = (AbstractWarrior) armyOne.getNextCharacter();
+        AbstractWarrior warriorOfArmyTwo = (AbstractWarrior) armyTwo.getNextCharacter();
 
         boolean onSuccess = !listOfArmyOne.isEmpty();
 
@@ -22,14 +23,12 @@ public class Battle implements FightStrategy<Army> {
 
             if (!warriorOfArmyOne.isAlive()) {
                 listOfArmyOne.remove(warriorOfArmyOne);
-                warriorOfArmyOne = armyOne.getNextWarrior();
+                warriorOfArmyOne = (AbstractWarrior) armyOne.getNextCharacter();
             } else {
                 listOfArmyTwo.remove(warriorOfArmyTwo);
-                warriorOfArmyTwo = armyTwo.getNextWarrior();
+                warriorOfArmyTwo = (AbstractWarrior) armyTwo.getNextCharacter();
             }
         }
         return onSuccess;
     }
-
-
 }
