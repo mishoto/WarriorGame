@@ -8,6 +8,7 @@ import edu.mihail.services.CharacterEquipmentService;
 import edu.mihail.utils.ArmyWithWarlordsUtils;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 
@@ -41,8 +42,11 @@ class ArmyTest {
                     .build())
             .build();
 
+    ArmyTest() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    }
+
     @Test
-    void shouldCheckIfMethodForValidationOfArmyWith_O_Or_One_Warlord_WorksCorrectly(){
+    void shouldCheckIfMethodForValidationOfArmyWith_O_Or_One_Warlord_WorksCorrectly() {
 
         Collection<Character> armyWith_O_Or_One_Warlord = ArmyWithWarlordsUtils
                 .deleteAllWarlordsFromTroopExceptOne(armyWithoutWarlords.getTroop());
@@ -59,7 +63,7 @@ class ArmyTest {
     }
 
     @Test
-    void shouldCheckIfWarlordIsAtLastPosition(){
+    void shouldCheckIfWarlordIsAtLastPosition() {
 
         List<Character> armyWith_O_Or_One_Warlord = ArmyWithWarlordsUtils
                 .deleteAllWarlordsFromTroopExceptOne(armyWithOneWarlord.getTroop());
@@ -70,18 +74,28 @@ class ArmyTest {
     }
 
     @Test
-    void shouldCheckIfArmyIsValidated(){
+    void shouldCheckIfArmyIsValidated() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
 
 //        System.out.println(armyWithoutWarlords);
 //        System.out.println(armyWithOneWarlord);
-        System.out.println(armyWith7Warlords);
+//        System.out.println(armyWith7Warlords);
+//
+//        Character newArmyCharacter = armyWith7Warlords.getNextCharacter()
+//                .equipWithAccessory(new CharacterEquipmentService.Builder()
+//                        .addAccessory(Weapon.MAGIC_WAND)
+//                        .addAccessory(Weapon.MAGIC_WAND)
+//                        .build());
 
-        Character newArmyCharacter = armyWith7Warlords.getNextCharacter()
-                .equipWithAccessory(new CharacterEquipmentService.Builder()
-                        .addAccessory(Weapon.MAGIC_WAND)
-                        .addAccessory(Weapon.MAGIC_WAND)
-                        .build());
-
-        System.out.println(newArmyCharacter);
+//        System.out.println(newArmyCharacter);
+        Army army = new Army.Builder()
+                .createTroopOf(CharacterType.KNIGHT, 2)
+                .createOneOf(CharacterType.DEFENDER)
+                .createOneOf(CharacterType.WARLORD)
+                .createOneAsArmyCharacter(CharacterType.LANCER, new CharacterEquipmentService.Builder()
+                        .addAccessory(Weapon.SHIELD)
+                        .addAccessory(Weapon.SWORD)
+                        .build())
+                .build();
+        army.armyArrangeIfWarlordIsPresent(army.getTroop());
     }
 }
