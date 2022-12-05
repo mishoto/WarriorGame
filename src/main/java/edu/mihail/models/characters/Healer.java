@@ -2,18 +2,17 @@ package edu.mihail.models.characters;
 
 import edu.mihail.models.contracts.Character;
 
-
 import edu.mihail.utils.Constants;
 
 public class Healer extends Character {
-    private static int healthPoints = Constants.Healer.HEALTH_POINTS;
+    private static final int healthPoints = Constants.Healer.HEALTH_POINTS;
 
     public Healer() {
         setHealth();
     }
 
-    public int heal(Character character) {
-        return character.getHealth() + getHealthPoints();
+    public static int heal(Character character) {
+        return character.getHealth() + healthPoints;
     }
 
     @Override
