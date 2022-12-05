@@ -1,15 +1,15 @@
 package edu.test.models;
 
 
-import edu.mihail.models.Knight;
-import edu.mihail.models.Warrior;
+import edu.mihail.models.characters.Knight;
+import edu.mihail.models.contracts.AbstractWarrior;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class KnightTest {
 
-    Warrior knight = new Knight();
+    AbstractWarrior knight = new Knight();
 
     @Test
     void shouldCheckIfKnightHasAttackOf7(){

@@ -1,6 +1,6 @@
 package edu.test.models;
 
-import edu.mihail.models.*;
+import edu.mihail.models.characters.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +42,7 @@ class LancerTest {
 
         lancer.hit(knight, defender);
         Assertions.assertEquals(41, knight.getHealth());
-        Assertions.assertEquals(50, defender.getHealth());
+        Assertions.assertEquals(49, defender.getHealth());
 
     }
 }

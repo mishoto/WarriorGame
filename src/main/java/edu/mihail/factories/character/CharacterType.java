@@ -1,4 +1,4 @@
-package edu.mihail.factories;
+package edu.mihail.factories.character;
 
 public enum CharacterType {
     WARRIOR,
@@ -6,5 +6,7 @@ public enum CharacterType {
     DEFENDER,
     VAMPIRE,
     LANCER,
-    HEALER
+    HEALER,
+    WARLORD,
+    ARMYCHARACTER
 }
