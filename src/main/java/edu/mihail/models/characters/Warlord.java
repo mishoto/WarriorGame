@@ -27,4 +27,7 @@ public class Warlord extends AbstractWarrior {
         this.health = Constants.Warlord.INITIAL_HEALTH;
     }
 
+    private static void moveUnits(){
+        System.out.println("start move()");
+    }
 }
