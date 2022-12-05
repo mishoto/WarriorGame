@@ -29,11 +29,11 @@ public class ArmyCharacter extends Character implements Healable<Healer> {
         return characterType;
     }
 
-    public void setCharacterType(CharacterType characterType) {
+    private void setCharacterType(CharacterType characterType) {
         this.characterType = characterType;
     }
 
-    public void setHealth(int health) {
+    private void setHealth(int health) {
         this.health = health;
     }
 
@@ -41,7 +41,7 @@ public class ArmyCharacter extends Character implements Healable<Healer> {
         return attack;
     }
 
-    public void setAttack(int attack) {
+    private void setAttack(int attack) {
         this.attack = attack;
     }
 
@@ -49,7 +49,7 @@ public class ArmyCharacter extends Character implements Healable<Healer> {
         return defence;
     }
 
-    public void setDefence(int defence) {
+    private void setDefence(int defence) {
         this.defence = defence;
     }
 
@@ -57,7 +57,7 @@ public class ArmyCharacter extends Character implements Healable<Healer> {
         return vampirism;
     }
 
-    public void setVampirism(int vampirism) {
+    private void setVampirism(int vampirism) {
         this.vampirism = vampirism;
     }
 
@@ -65,7 +65,7 @@ public class ArmyCharacter extends Character implements Healable<Healer> {
         return healPower;
     }
 
-    public void setHealPower(int healPower) {
+    private void setHealPower(int healPower) {
         this.healPower = healPower;
     }
 
