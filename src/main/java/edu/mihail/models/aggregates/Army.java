@@ -9,7 +9,7 @@ import edu.mihail.services.AbstractEquipmentService;
 import edu.mihail.services.observerservice.NotificationService;
 import edu.mihail.services.observerservice.EventType;
 import edu.mihail.utils.ArmyWithWarlordsUtils;
-import edu.mihail.utils.CharacterUtils;
+
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -54,6 +54,13 @@ public class Army extends AbstractArmy<Character> {
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
         validateTroopWithSingleWarlord(troop);
+        troop = armyInitialArrangeIfWarlordIsPresent(troop);
+        troopIterator = troop.listIterator();
+        armyNotificationService = new NotificationService();
+    }
+
+    public Army(List<Character> characterList){
+        this.troop = characterList;
         troopIterator = troop.listIterator();
         armyNotificationService = new NotificationService();
     }
@@ -86,17 +93,21 @@ public class Army extends AbstractArmy<Character> {
         armyNotificationService.notifyArmy(EventType.ARMY_ARRANGE, Army.this);
     }
 
-    private void validateTroopWithSingleWarlord(List<Character> troop) {
+    private static void validateTroopWithSingleWarlord(List<Character> troop) {
         ArmyWithWarlordsUtils.deleteAllWarlordsFromTroopExceptOne(troop);
         ArmyWithWarlordsUtils.moveWarlordToEnd(troop);
     }
 
-    public void armyArrangeIfWarlordIsPresent(List<Character> troop){
-        Character character = troop.get(troop.size()-1);
-        CharacterType characterType = CharacterUtils.getTypeFromCharacterInstance(character);
-        if(characterType.equals(CharacterType.WARLORD)){
-            Warlord.moveUnits();
+    private static boolean hasWarlordInArmy(List<Character> troop){
+        return troop.get(troop.size()-1) instanceof Warlord;
+    }
+
+    private static List<Character> armyInitialArrangeIfWarlordIsPresent(List<Character> troop){
+        Army army = new Army(troop);
+        if(hasWarlordInArmy(army.getTroop())){
+            ArmyWithWarlordsUtils.arrangeArmy(army);
         }
+        return hasWarlordInArmy(army.getTroop()) ? ArmyWithWarlordsUtils.arrangeArmy(army).getTroop() : army.getTroop();
     }
 
 
