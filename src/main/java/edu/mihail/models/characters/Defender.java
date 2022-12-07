@@ -6,7 +6,7 @@ import edu.mihail.utils.Constants;
 public class Defender extends AbstractWarrior {
 
     public Defender() {
-        setHealth();
+        health = Constants.Defender.INITIAL_HEALTH;
     }
 
     @Override
@@ -14,13 +14,8 @@ public class Defender extends AbstractWarrior {
         return this.health;
     }
 
-
     public int getDefence(){
         return Constants.Defender.DEFENCE;
-    }
-
-    private void setHealth() {
-        this.health = Constants.Defender.INITIAL_HEALTH;
     }
 
     @Override

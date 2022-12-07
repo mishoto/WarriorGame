@@ -1,12 +1,14 @@
 package edu.mihail.models.characters;
 
+import edu.mihail.models.aggregates.Army;
 import edu.mihail.models.contracts.AbstractWarrior;
+import edu.mihail.utils.ArmyWithWarlordsUtils;
 import edu.mihail.utils.Constants;
 
 public class Warlord extends AbstractWarrior {
 
     public Warlord() {
-        setHealth();
+        health = Constants.Warlord.INITIAL_HEALTH;
     }
 
     @Override
@@ -23,11 +25,7 @@ public class Warlord extends AbstractWarrior {
         return Constants.Warlord.DEFENCE;
     }
 
-    private void setHealth(){
-        this.health = Constants.Warlord.INITIAL_HEALTH;
-    }
-
-    public static void moveUnits(){
-        System.out.println("start move()");
+    public static void moveUnits(Army army){
+        ArmyWithWarlordsUtils.arrangeArmy(army);
     }
 }

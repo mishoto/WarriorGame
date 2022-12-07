@@ -6,12 +6,12 @@ import edu.mihail.utils.Constants;
 public class Knight extends AbstractWarrior {
 
     public Knight() {
-        setHealth();
+        health = Constants.Knight.INITIAL_HEALTH;
     }
 
     @Override
     public int getAttack() {
-        return this.attack = Constants.Warrior.ATTACK;
+        return this.attack = Constants.Knight.ATTACK;
     }
 
     @Override
@@ -19,7 +19,4 @@ public class Knight extends AbstractWarrior {
         return this.health;
     }
 
-    private void setHealth() {
-        this.health = Constants.Knight.INITIAL_HEALTH;
-    }
 }

@@ -10,7 +10,7 @@ public class Vampire extends AbstractWarrior {
     private int vampireHeal;
 
     public Vampire() {
-        setHealth(Constants.Vampire.INITIAL_HEALTH);
+        health = Constants.Vampire.INITIAL_HEALTH;
     }
 
     private int calculateVampireHeal(Character character, int vampirism){
@@ -27,7 +27,7 @@ public class Vampire extends AbstractWarrior {
     public void hit(Character character) {
         super.hit(character);
         setVampireHeal(character);
-        setHealth(Math.min(getVampireHeal(), Constants.Vampire.INITIAL_HEALTH));
+        this.health = (Math.min(getVampireHeal(), Constants.Vampire.INITIAL_HEALTH));
     }
 
     @Override
@@ -48,7 +48,4 @@ public class Vampire extends AbstractWarrior {
         return this.health;
     }
 
-    private void setHealth(int health) {
-        this.health = health;
-    }
 }

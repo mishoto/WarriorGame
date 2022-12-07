@@ -8,7 +8,7 @@ public class Lancer extends AbstractWarrior {
 
 
     public Lancer() {
-        setHealth();
+        health = Constants.Lancer.INITIAL_HEALTH;
     }
 
     @Override
@@ -34,7 +34,4 @@ public class Lancer extends AbstractWarrior {
         return this.health;
     }
 
-    private void setHealth() {
-        this.health = Constants.Lancer.INITIAL_HEALTH;
-    }
 }

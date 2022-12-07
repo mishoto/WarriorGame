@@ -7,11 +7,7 @@ import edu.mihail.utils.Constants;
 public class Warrior extends AbstractWarrior {
 
     public Warrior() {
-        setHealth();
-    }
-
-    private void setHealth() {
-        this.health = Constants.Warrior.INITIAL_HEALTH;
+        health = Constants.Warrior.INITIAL_HEALTH;
     }
 
     @Override

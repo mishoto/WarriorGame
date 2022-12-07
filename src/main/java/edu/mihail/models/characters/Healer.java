@@ -5,14 +5,14 @@ import edu.mihail.models.contracts.Character;
 import edu.mihail.utils.Constants;
 
 public class Healer extends Character {
-    private static final int healthPoints = Constants.Healer.HEALTH_POINTS;
+    private static final int HEALTH_POINTS = Constants.Healer.HEALTH_POINTS;
 
     public Healer() {
-        setHealth();
+        health = Constants.Healer.INITIAL_HEALTH;
     }
 
     public static int heal(Character character) {
-        return character.getHealth() + healthPoints;
+        return character.getHealth() + HEALTH_POINTS;
     }
 
     @Override
@@ -21,11 +21,7 @@ public class Healer extends Character {
     }
 
     public int getHealthPoints(){
-        return healthPoints;
-    }
-
-    private void setHealth() {
-        this.health = Constants.Healer.INITIAL_HEALTH;
+        return HEALTH_POINTS;
     }
 
 }
